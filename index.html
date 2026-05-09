@@ -343,14 +343,14 @@
 
     .hero-char-glow {
       position: absolute;
-      width: 300px;
-      height: 300px;
-      background: radial-gradient(circle, rgba(161,148,200,0.18) 0%, transparent 70%);
+      width: 420px;
+      height: 420px;
+      background: radial-gradient(circle, rgba(161,148,200,0.14) 0%, rgba(192,136,152,0.06) 50%, transparent 70%);
       border-radius: 50%;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      filter: blur(40px);
+      filter: blur(60px);
     }
 
     .hero-char-img {
@@ -360,7 +360,10 @@
       height: 100%;
       object-fit: contain;
       animation: float-char 6s ease-in-out infinite;
-      filter: drop-shadow(0 40px 80px rgba(0,0,0,0.6));
+      filter: drop-shadow(0 40px 80px rgba(0,0,0,0.5));
+      /* Fade out white background edges on dark bg */
+      -webkit-mask-image: radial-gradient(ellipse 78% 85% at 50% 50%, black 55%, transparent 100%);
+      mask-image: radial-gradient(ellipse 78% 85% at 50% 50%, black 55%, transparent 100%);
     }
 
     .hero-char-placeholder {
@@ -1055,7 +1058,7 @@
         <div class="hero-char-wrap">
           <div class="hero-char-glow"></div>
           <img
-            src="images/bunny-yawning.png"
+            src="images/bunny-hero.png"
             alt="MOODEE character — emotionally exhausted but still here"
             class="hero-char-img"
             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"
