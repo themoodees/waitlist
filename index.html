@@ -337,9 +337,9 @@
     .steps::before {
       content: '';
       position: absolute;
-      top: 38px;
-      left: calc(33.33% / 2);
-      right: calc(33.33% / 2);
+      top: 26px;
+      left: 0;
+      right: 0;
       height: 1px;
       background: var(--gold);
       z-index: 0;
@@ -363,9 +363,12 @@
       margin-bottom: 20px;
       display: block;
       background: var(--warm-grey);
-      padding-right: 16px;
+      padding: 0 12px;
       width: fit-content;
     }
+
+    .step:first-child .step-number { padding-left: 0; }
+    .step:last-child .step-number  { padding-right: 0; }
 
     .step h3 {
       font-family: var(--font-body);
