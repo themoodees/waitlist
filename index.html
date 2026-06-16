@@ -628,6 +628,18 @@
 
       .footer-contact { text-align: left; }
     }
+
+    /* ─── FADE IN ───────────────────────────────────────── */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
   </style>
 </head>
 <body>
@@ -643,7 +655,7 @@
   </nav>
 
   <!-- ─── 2. HERO ────────────────────────────────────────── -->
-  <section class="hero">
+  <section class="hero fade-in">
     <div class="hero-inner">
       <h1>You're earning. You're spending. But where is it all going?</h1>
       <p class="hero-sub">Compass is a personal financial analysis made for foreigners living in Japan. Answer a few questions about your money, and we'll send you a clear, personalised report on your habits — plus a simple plan to take back control.</p>
@@ -655,7 +667,7 @@
   </section>
 
   <!-- ─── 3. EMPATHY ─────────────────────────────────────── -->
-  <section class="empathy">
+  <section class="empathy fade-in">
     <div class="empathy-inner">
       <h2>Living in Japan changes your relationship with money.</h2>
       <p class="empathy-body">The convenience store on every corner. The vending machines. The late-night delivery. The social pressure to keep up. The pension and health insurance you're not sure you're handling right. Most foreigners here are managing day to day — but not really understanding their money.</p>
@@ -671,7 +683,7 @@
   </section>
 
   <!-- ─── 4. WHAT YOU GET ────────────────────────────────── -->
-  <section class="what-you-get">
+  <section class="what-you-get fade-in">
     <div class="what-you-get-inner">
       <span class="section-label">What You Receive</span>
       <h2>Your personal Compass Report</h2>
@@ -699,7 +711,7 @@
   </section>
 
   <!-- ─── 5. HOW IT WORKS ────────────────────────────────── -->
-  <section class="how-it-works">
+  <section class="how-it-works fade-in">
     <span class="section-label">The Process</span>
     <h2>Simple. Personal. Actionable.</h2>
     <div class="steps">
@@ -722,7 +734,7 @@
   </section>
 
   <!-- ─── 6. WHY COMPASS ─────────────────────────────────── -->
-  <section class="why-compass">
+  <section class="why-compass fade-in">
     <span class="section-label">Why Compass</span>
     <h2>Built for where you actually are.</h2>
     <p class="why-compass-body">Most financial advice isn't built for people living abroad. It assumes you understand the local system, speak the language fluently, and have been planning since your twenties. Compass is different. It starts where you actually are — not where you're supposed to be. Your answers are read carefully, your situation is considered, and what comes back is a report that makes sense for your life in Japan — not someone else's.</p>
@@ -735,7 +747,7 @@
   </section>
 
   <!-- ─── 7. OBJECTIONS ──────────────────────────────────── -->
-  <section class="objections">
+  <section class="objections fade-in">
     <div class="objections-inner">
       <span class="section-label">Common Questions</span>
       <h2>You might be thinking…</h2>
@@ -761,7 +773,7 @@
   </section>
 
   <!-- ─── 8. FINAL CTA ───────────────────────────────────── -->
-  <section class="final-cta">
+  <section class="final-cta fade-in">
     <h2>Ready to find clarity on your money in Japan?</h2>
     <p class="final-cta-sub">For less than a dinner out, you'll get a clear picture of your finances — and a real plan to move forward.</p>
     <!-- TODO: Replace with Stripe payment link -->
@@ -770,7 +782,7 @@
   </section>
 
   <!-- ─── 9. FOOTER ──────────────────────────────────────── -->
-  <footer>
+  <footer class="fade-in">
     <div class="footer-main">
       <div>
         <a href="#" class="footer-logo">Compass</a>
@@ -785,5 +797,17 @@
     </div>
   </footer>
 
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.08 });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  </script>
 </body>
 </html>
