@@ -820,7 +820,12 @@
       .pricing-grid { grid-template-columns: 1fr; gap: 20px; }
       .report-mockup { height: 220px; }
 
-      .steps { grid-template-columns: 1fr; gap: 48px; }
+      .steps {
+        flex-direction: column;
+        gap: 48px;
+      }
+
+      .step { flex: none; width: 100%; }
       .step-divider { display: none; }
 
       .footer-main { flex-direction: column; gap: 28px; }
