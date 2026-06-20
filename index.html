@@ -100,19 +100,15 @@
     }
 
     .nav-logo {
-      font-family: var(--font-head);
-      font-size: 22px;
-      font-weight: 600;
-      letter-spacing: 0.18em;
-      color: var(--green);
-      text-transform: uppercase;
+      display: block;
       text-decoration: none;
+      line-height: 0;
     }
 
-    .nav-tagline {
-      font-family: var(--font-body);
-      font-size: 12px;
-      color: var(--grey);
+    .nav-logo img {
+      height: 44px;
+      width: auto;
+      display: block;
     }
 
     /* ─── 2. HERO ────────────────────────────────────────── */
@@ -795,7 +791,6 @@
     /* ─── RESPONSIVE ─────────────────────────────────────── */
     @media (max-width: 768px) {
       nav { padding: 16px 24px; flex-wrap: nowrap; gap: 16px; }
-      .nav-tagline { display: none; }
 
       .hero         { grid-template-columns: 1fr; min-height: auto; }
       .hero-content { padding: 64px 24px 56px; }
@@ -830,8 +825,9 @@
   <!-- ─── 1. NAVBAR ──────────────────────────────────────── -->
   <nav>
     <div class="nav-left">
-      <a href="#" class="nav-logo">Compass</a>
-      <span class="nav-tagline">Find clarity. Find direction.</span>
+      <a href="#" class="nav-logo">
+        <img src="/images/compass-logo-horizontal.png" alt="Compass — Find clarity. Find direction." />
+      </a>
     </div>
     <a href="#pricing" class="btn-green">See Pricing</a>
   </nav>
@@ -842,7 +838,6 @@
       <div class="hero-inner">
         <h1>You're earning. You're spending. But where is it all going?</h1>
         <p class="hero-sub">Compass is a personal financial analysis made for foreigners living in Japan. Answer a few questions about your money, and we'll send you a clear, personalised report on your habits — plus a simple plan to take back control.</p>
-        <!-- TODO: Replace with Stripe payment link -->
         <a href="#pricing" class="btn-gold">→ Find Your Report</a>
         <p class="hero-trust">From ¥1,000 · Fully personalised to your answers · Delivered to your inbox</p>
       </div>
