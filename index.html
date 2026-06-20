@@ -739,21 +739,15 @@
     }
 
     .footer-logo {
-      font-family: var(--font-head);
-      font-size: 20px;
-      font-weight: 600;
-      letter-spacing: 0.18em;
-      color: var(--cream);
-      text-transform: uppercase;
-      text-decoration: none;
       display: block;
-      margin-bottom: 8px;
+      text-decoration: none;
+      line-height: 0;
     }
 
-    .footer-tagline {
-      font-family: var(--font-body);
-      font-size: 12px;
-      color: var(--grey);
+    .footer-logo img {
+      height: 40px;
+      width: auto;
+      display: block;
     }
 
     .footer-contact {
@@ -1043,8 +1037,9 @@
   <footer class="fade-in">
     <div class="footer-main">
       <div>
-        <a href="#" class="footer-logo">Compass</a>
-        <span class="footer-tagline">Find clarity. Find direction.</span>
+        <a href="#" class="footer-logo">
+          <img src="/images/compass-logo-horizontal-white.png" alt="Compass — Find clarity. Find direction." />
+        </a>
       </div>
       <div class="footer-contact">
         Questions? hello@compasss.life
