@@ -118,19 +118,25 @@
     /* ─── 2. HERO ────────────────────────────────────────── */
     .hero {
       background: var(--cream);
-      padding: 100px 48px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
+      padding: 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 88vh;
       position: relative;
     }
 
-    .hero-inner { max-width: 780px; width: 100%; }
+    .hero-content {
+      padding: 100px 56px 100px 48px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .hero-inner { max-width: 560px; width: 100%; }
 
     .hero h1 {
       font-family: var(--font-head);
-      font-size: clamp(40px, 5.5vw, 72px);
+      font-size: clamp(36px, 4.5vw, 64px);
       font-weight: 500;
       line-height: 1.1;
       color: var(--green);
@@ -141,9 +147,8 @@
       font-family: var(--font-body);
       font-size: 17px;
       color: var(--grey);
-      max-width: 600px;
       line-height: 1.75;
-      margin: 0 auto 44px;
+      margin-bottom: 44px;
     }
 
     .hero-trust {
@@ -151,6 +156,37 @@
       font-size: 13px;
       color: var(--grey);
       margin-top: 20px;
+    }
+
+    .hero-image {
+      background: var(--warm-grey);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 500px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      position: absolute;
+      inset: 0;
+      /* TODO: Replace with lifestyle photo — e.g. Tokyo street or someone at a desk */
+      display: none;
+    }
+
+    .img-placeholder-label {
+      font-family: var(--font-body);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--grey);
+      text-align: center;
+      line-height: 1.6;
     }
 
     .hero-divider {
@@ -239,6 +275,29 @@
     }
 
     .what-you-get-inner { max-width: 900px; width: 100%; }
+
+    .report-mockup {
+      margin-top: 56px;
+      width: 100%;
+      height: 340px;
+      background: var(--warm-grey);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--warm-grey);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .report-mockup img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      position: absolute;
+      inset: 0;
+      /* TODO: Replace with report sample / mockup image */
+      display: none;
+    }
 
     .what-you-get h2 {
       font-family: var(--font-head);
@@ -507,11 +566,16 @@
     .why-compass {
       background: var(--cream);
       padding: 100px 48px;
-      text-align: center;
-      display: flex;
-      flex-direction: column;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
       align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+      box-sizing: border-box;
     }
+
+    .why-compass-text { display: flex; flex-direction: column; }
 
     .why-compass h2 {
       font-family: var(--font-head);
@@ -527,11 +591,30 @@
       font-size: 16px;
       color: var(--grey);
       line-height: 1.8;
-      max-width: 640px;
-      margin-bottom: 56px;
+      margin-bottom: 48px;
     }
 
-    .pull-quote-wrap { max-width: 680px; width: 100%; }
+    .pull-quote-wrap { max-width: 100%; width: 100%; }
+
+    .why-compass-image {
+      background: var(--warm-grey);
+      height: 480px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .why-compass-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      position: absolute;
+      inset: 0;
+      /* TODO: Replace with portrait or atmospheric Japan photo */
+      display: none;
+    }
 
     .pull-quote-line { height: 1px; background: var(--gold); display: block; }
 
@@ -720,18 +803,25 @@
       nav { padding: 16px 24px; flex-wrap: nowrap; gap: 16px; }
       .nav-tagline { display: none; }
 
-      .hero         { padding: 64px 24px 72px; }
+      .hero         { grid-template-columns: 1fr; min-height: auto; }
+      .hero-content { padding: 64px 24px 56px; }
+      .hero-image   { min-height: 260px; }
+
       .empathy      { padding: 72px 24px; }
       .what-you-get { padding: 72px 24px; }
       .pricing      { padding: 72px 24px; }
       .how-it-works { padding: 72px 24px; }
-      .why-compass  { padding: 72px 24px; }
+
+      .why-compass  { grid-template-columns: 1fr; gap: 40px; padding: 72px 24px; max-width: 100%; }
+      .why-compass-image { height: 280px; }
+
       .objections   { padding: 72px 24px; }
       .final-cta    { padding: 72px 24px; }
       footer        { padding: 48px 24px 28px; }
 
       .cards-grid   { grid-template-columns: 1fr; }
       .pricing-grid { grid-template-columns: 1fr; gap: 20px; }
+      .report-mockup { height: 220px; }
 
       .steps { grid-template-columns: 1fr; gap: 48px; }
       .step-divider { display: none; }
@@ -754,12 +844,19 @@
 
   <!-- ─── 2. HERO ────────────────────────────────────────── -->
   <section class="hero fade-in">
-    <div class="hero-inner">
-      <h1>You're earning. You're spending. But where is it all going?</h1>
-      <p class="hero-sub">Compass is a personal financial analysis made for foreigners living in Japan. Answer a few questions about your money, and we'll send you a clear, personalised report on your habits — plus a simple plan to take back control.</p>
-      <!-- TODO: Replace with Stripe payment link -->
-      <a href="#pricing" class="btn-gold">→ Find Your Report</a>
-      <p class="hero-trust">From ¥1,000 · Fully personalised to your answers · Delivered to your inbox</p>
+    <div class="hero-content">
+      <div class="hero-inner">
+        <h1>You're earning. You're spending. But where is it all going?</h1>
+        <p class="hero-sub">Compass is a personal financial analysis made for foreigners living in Japan. Answer a few questions about your money, and we'll send you a clear, personalised report on your habits — plus a simple plan to take back control.</p>
+        <!-- TODO: Replace with Stripe payment link -->
+        <a href="#pricing" class="btn-gold">→ Find Your Report</a>
+        <p class="hero-trust">From ¥1,000 · Fully personalised to your answers · Delivered to your inbox</p>
+      </div>
+    </div>
+    <!-- TODO: Replace with lifestyle photo — e.g. Tokyo street scene or person at a desk in Japan -->
+    <div class="hero-image">
+      <img src="" alt="Life in Japan" />
+      <span class="img-placeholder-label">Lifestyle photo<br>Tokyo / Japan</span>
     </div>
     <div class="hero-divider"></div>
   </section>
@@ -804,6 +901,11 @@
           <span class="card-label">Your Personal Closing</span>
           <p>A direct message written for where you actually are — not generic encouragement, but something that could only have been written for the person who answered these specific questions.</p>
         </div>
+      </div>
+      <!-- TODO: Replace with report sample / mockup image -->
+      <div class="report-mockup">
+        <img src="" alt="Sample Compass report" />
+        <span class="img-placeholder-label">Report mockup / sample image</span>
       </div>
     </div>
   </section>
@@ -892,13 +994,20 @@
 
   <!-- ─── 7. WHY COMPASS ─────────────────────────────────── -->
   <section class="why-compass fade-in">
-    <span class="section-label">Why Compass</span>
-    <h2>Built for where you actually are.</h2>
-    <p class="why-compass-body">Most financial advice isn't built for people living abroad. It assumes you understand the local system, speak the language fluently, and have been planning since your twenties. Compass is different. It starts where you actually are — not where you're supposed to be. Your answers are read carefully, your situation is considered, and what comes back is a report that makes sense for your life in Japan — not someone else's.</p>
-    <div class="pull-quote-wrap">
-      <span class="pull-quote-line"></span>
-      <p class="pull-quote">"Not where you're supposed to be. Where you actually are."</p>
-      <span class="pull-quote-line"></span>
+    <div class="why-compass-text">
+      <span class="section-label">Why Compass</span>
+      <h2>Built for where you actually are.</h2>
+      <p class="why-compass-body">Most financial advice isn't built for people living abroad. It assumes you understand the local system, speak the language fluently, and have been planning since your twenties. Compass is different. It starts where you actually are — not where you're supposed to be. Your answers are read carefully, your situation is considered, and what comes back is a report that makes sense for your life in Japan — not someone else's.</p>
+      <div class="pull-quote-wrap">
+        <span class="pull-quote-line"></span>
+        <p class="pull-quote">"Not where you're supposed to be. Where you actually are."</p>
+        <span class="pull-quote-line"></span>
+      </div>
+    </div>
+    <!-- TODO: Replace with portrait or atmospheric Japan photo -->
+    <div class="why-compass-image">
+      <img src="" alt="Person in Japan" />
+      <span class="img-placeholder-label">Portrait or atmospheric<br>Japan photo</span>
     </div>
   </section>
 
