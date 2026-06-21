@@ -1,5 +1,20 @@
 import type { Metadata } from "next";
+import { Cormorant_Garamond, Inter } from "next/font/google";
 import "./globals.css";
+
+const cormorant = Cormorant_Garamond({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  style: ["normal", "italic"],
+  variable: "--font-cormorant",
+  display: "swap",
+});
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: "Compass — Personal Financial Analysis for Foreigners in Japan",
@@ -29,7 +44,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         />
         {/* End Google Tag Manager */}
       </head>
-      <body>
+      <body className={`${cormorant.variable} ${inter.variable}`}>
         {/* Google Tag Manager (noscript) */}
         <noscript>
           <iframe
