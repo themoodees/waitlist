@@ -111,6 +111,13 @@ export default function ThankYouBasicPage() {
           color: #6E726C;
         }
 
+        .thankyou-step-text a {
+          color: #24352D;
+          font-weight: 500;
+          text-decoration: underline;
+          text-underline-offset: 3px;
+        }
+
         .thankyou-home {
           display: inline-block;
           margin-top: 16px;
@@ -167,8 +174,19 @@ export default function ThankYouBasicPage() {
                 <div className="thankyou-step-text">
                   <strong>Complete your questionnaire</strong>
                   <span>
-                    Watch for a follow-up email with the link to your Basic
-                    Report questionnaire. It takes about 5 minutes.
+                    Fill it out below — it takes about 5 minutes and is the
+                    only thing we need to build your report. A link has also
+                    been sent to your inbox in case you&apos;d like to return to
+                    it later.
+                    <br />
+                    <a
+                      href="https://tally.so/r/5BOr96"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Click here
+                    </a>{" "}
+                    to fill out your questionnaire
                   </span>
                 </div>
               </li>
