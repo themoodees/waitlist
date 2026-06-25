@@ -194,9 +194,7 @@ export default function Lp02() {
             {steps.map((step) => (
               <div key={step.num}>
                 <p className="lp02-step-num mb-5">{step.num}</p>
-                <p className="mb-3 text-[15px] font-medium" style={{ color: "var(--green)" }}>
-                  {step.title}
-                </p>
+                <p className="lp02-step-title mb-3">{step.title}</p>
                 <p className="text-[15px] leading-relaxed" style={{ color: "var(--grey)" }}>
                   {step.body}
                 </p>

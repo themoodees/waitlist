@@ -36,12 +36,7 @@ export function FaqAccordion() {
               className="flex w-full items-center justify-between gap-4 py-8 text-left"
               aria-expanded={isOpen}
             >
-              <span
-                className="text-lg italic leading-snug md:text-xl"
-                style={{ fontFamily: "var(--font-head)", color: "var(--green)" }}
-              >
-                {item.q}
-              </span>
+              <span className="lp02-faq-q">{item.q}</span>
               <span
                 className="shrink-0 text-lg transition-transform duration-200"
                 style={{
