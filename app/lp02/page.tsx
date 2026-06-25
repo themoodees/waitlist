@@ -107,7 +107,7 @@ export default function Lp02() {
               rel="noopener noreferrer"
               className="lp02-btn-green"
             >
-              Get the Full Report — ¥5,000
+              Get the Full Report — ¥3,000
             </a>
             <a
               href={STRIPE_BASIC}
@@ -170,7 +170,7 @@ export default function Lp02() {
             <div className="lp02-card lp02-card--full flex flex-col">
               <span className="lp02-badge mb-5 self-start">Recommended</span>
               <h3 className="lp02-heading-md mb-4">Full Report</h3>
-              <p className="lp02-price mb-2">¥5,000</p>
+              <p className="lp02-price mb-2">¥3,000</p>
               <p className="mb-8 text-[13px]" style={{ color: "var(--grey)" }}>
                 20–30 min questionnaire
               </p>
@@ -228,7 +228,7 @@ export default function Lp02() {
               rel="noopener noreferrer"
               className="lp02-btn-green"
             >
-              Get the Full Report — ¥5,000
+              Get the Full Report — ¥3,000
             </a>
             <a
               href={STRIPE_BASIC}

@@ -8,7 +8,7 @@ const faqs = [
     a: "Yes. Every report is built around your specific answers — your income, your habits, your goals in Japan. No two are the same.",
   },
   {
-    q: "Is ¥5,000 worth it?",
+    q: "Is ¥3,000 worth it?",
     a: "Most readers find a pattern costing them ¥100,000 or more per year they'd never quantified. The report pays for itself the first time you act on it.",
   },
   {
