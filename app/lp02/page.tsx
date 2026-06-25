@@ -46,28 +46,19 @@ const steps = [
 ];
 
 function SectionLabel({ children }: { children: React.ReactNode }) {
-  return (
-    <p
-      className="mb-4 text-xs font-medium uppercase tracking-[0.15em]"
-      style={{ color: "#6E726C" }}
-    >
-      {children}
-    </p>
-  );
+  return <p className="lp02-section-label">{children}</p>;
 }
 
 function Divider() {
-  return <div className="my-16 h-px w-full" style={{ backgroundColor: "#DAD4CA" }} />;
+  return <div className="lp02-divider my-16 w-full" />;
 }
 
 function FeatureList({ items }: { items: string[] }) {
   return (
-    <ul className="mb-8 space-y-3">
+    <ul className="mb-8 space-y-4">
       {items.map((item) => (
-        <li key={item} className="flex items-start gap-2 text-sm" style={{ color: "#24352D" }}>
-          <span className="shrink-0 font-medium" style={{ color: "#24352D" }}>
-            →
-          </span>
+        <li key={item} className="flex items-start gap-3 text-sm leading-relaxed" style={{ color: "var(--grey)" }}>
+          <span className="lp02-feat-dot" />
           {item}
         </li>
       ))}
@@ -77,43 +68,42 @@ function FeatureList({ items }: { items: string[] }) {
 
 export default function Lp02() {
   return (
-    <div className="font-[family-name:var(--font-inter)]" style={{ backgroundColor: "#F7F4EE", color: "#24352D" }}>
+    <div className="lp02">
       {/* NAV */}
-      <nav className="sticky top-0 z-50 px-6 py-5 md:px-12" style={{ backgroundColor: "#F7F4EE" }}>
-        <div className="mx-auto flex max-w-3xl items-center justify-between">
+      <nav className="lp02-nav sticky top-0 z-50 px-6 py-[18px] md:px-12">
+        <div className="mx-auto flex max-w-3xl items-center justify-between gap-6">
           <Image
             src="/images/compass-logo-horizontal.png"
             alt="Compass"
-            width={140}
-            height={36}
-            className="h-8 w-auto"
+            width={160}
+            height={44}
+            className="h-11 w-auto"
             priority
           />
-          <a href="#pricing" className="text-sm" style={{ color: "#24352D" }}>
-            See pricing ↓
+          <a href="#pricing" className="lp02-btn-green shrink-0 px-5 py-3 text-sm whitespace-nowrap">
+            See Pricing
           </a>
         </div>
       </nav>
 
-      <main className="mx-auto max-w-3xl px-6 pb-16 md:px-12">
+      <main className="mx-auto max-w-3xl px-6 pb-0 md:px-12">
         {/* HERO */}
-        <section className="fade-in pt-8 md:pt-16">
-          <h1 className="mb-6 text-4xl leading-tight font-semibold md:text-5xl lg:text-[3.25rem] lg:leading-[1.1]">
+        <section className="fade-in pt-12 md:pt-20">
+          <h1 className="lp02-heading-xl mb-8">
             You&apos;re earning. You&apos;re spending.
             <br />
             But where is it all going?
           </h1>
-          <p className="mb-8 max-w-xl text-base leading-relaxed md:text-lg" style={{ color: "#6E726C" }}>
+          <p className="lp02-body mb-10 max-w-xl text-[17px]">
             A personal financial report, built around your answers — not a template. Made for foreigners
             living in Japan who want a clear picture of their money and what to do next.
           </p>
-          <div className="mb-4 flex flex-wrap items-center gap-4">
+          <div className="mb-5 flex flex-wrap items-center gap-5">
             <a
               href={STRIPE_FULL}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block rounded-full px-6 py-3 text-sm font-medium"
-              style={{ backgroundColor: "#24352D", color: "#F7F4EE" }}
+              className="lp02-btn-green"
             >
               Get the Full Report — ¥5,000
             </a>
@@ -121,30 +111,29 @@ export default function Lp02() {
               href={STRIPE_BASIC}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-sm underline"
-              style={{ color: "#24352D" }}
+              className="lp02-link text-sm"
             >
               Basic Report — ¥1,000
             </a>
           </div>
-          <p className="text-sm" style={{ color: "#6E726C" }}>
+          <p className="text-[13px]" style={{ color: "var(--grey)" }}>
             One-time payment · No subscription · Delivered within 3–5 days
           </p>
         </section>
 
-        <Divider />
+        <div className="lp02-divider-gold my-16 w-full" />
 
         {/* DOES THIS SOUND LIKE YOU */}
         <section className="fade-in">
           <SectionLabel>Does this sound like you?</SectionLabel>
-          <ul className="mb-8 space-y-4">
+          <ul className="mb-10 space-y-5">
             {empathyQuotes.map((quote) => (
-              <li key={quote} className="text-base leading-relaxed md:text-lg" style={{ color: "#24352D" }}>
+              <li key={quote} className="lp02-body-green text-base md:text-[17px]">
                 &ldquo;{quote}&rdquo;
               </li>
             ))}
           </ul>
-          <p className="text-base leading-relaxed md:text-lg" style={{ color: "#6E726C" }}>
+          <p className="lp02-closing">
             If any of that sounds familiar, this report was made for you.
           </p>
         </section>
@@ -154,19 +143,13 @@ export default function Lp02() {
         {/* PRICING */}
         <section id="pricing" className="fade-in">
           <SectionLabel>Choose your depth</SectionLabel>
-          <h2 className="mb-10 text-3xl font-semibold leading-tight md:text-4xl">
-            Two reports. One clear direction.
-          </h2>
+          <h2 className="lp02-heading-lg mb-10">Two reports. One clear direction.</h2>
 
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-            {/* Basic */}
-            <div
-              className="flex flex-col rounded-2xl p-6 md:p-8"
-              style={{ backgroundColor: "#F7F4EE", border: "1px solid #DAD4CA" }}
-            >
-              <h3 className="mb-2 text-lg font-semibold">Basic Report</h3>
-              <p className="mb-1 text-3xl font-semibold">¥1,000</p>
-              <p className="mb-6 text-sm" style={{ color: "#6E726C" }}>
+            <div className="lp02-card lp02-card--basic flex flex-col">
+              <h3 className="lp02-heading-md mb-4">Basic Report</h3>
+              <p className="lp02-price mb-2">¥1,000</p>
+              <p className="mb-8 text-[13px]" style={{ color: "var(--grey)" }}>
                 5-min questionnaire
               </p>
               <FeatureList items={basicFeatures} />
@@ -174,27 +157,17 @@ export default function Lp02() {
                 href={STRIPE_BASIC}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-auto block rounded-full py-3 text-center text-sm font-medium"
-                style={{ border: "1px solid #DAD4CA", color: "#24352D" }}
+                className="lp02-btn-green lp02-btn-full mt-auto"
               >
                 Get Basic
               </a>
             </div>
 
-            {/* Full */}
-            <div
-              className="flex flex-col rounded-2xl p-6 md:p-8"
-              style={{ backgroundColor: "#F7F4EE", border: "1.5px solid #24352D" }}
-            >
-              <span
-                className="mb-4 inline-block self-start rounded-full px-3 py-1 text-xs font-medium"
-                style={{ backgroundColor: "rgba(36, 53, 45, 0.08)", color: "#24352D" }}
-              >
-                Recommended
-              </span>
-              <h3 className="mb-2 text-lg font-semibold">Full Report</h3>
-              <p className="mb-1 text-3xl font-semibold">¥5,000</p>
-              <p className="mb-6 text-sm" style={{ color: "#6E726C" }}>
+            <div className="lp02-card lp02-card--full flex flex-col">
+              <span className="lp02-badge mb-5 self-start">Recommended</span>
+              <h3 className="lp02-heading-md mb-4">Full Report</h3>
+              <p className="lp02-price mb-2">¥5,000</p>
+              <p className="mb-8 text-[13px]" style={{ color: "var(--grey)" }}>
                 20–30 min questionnaire
               </p>
               <FeatureList items={fullFeatures} />
@@ -202,8 +175,7 @@ export default function Lp02() {
                 href={STRIPE_FULL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-auto block rounded-full py-3 text-center text-sm font-medium"
-                style={{ backgroundColor: "#24352D", color: "#F7F4EE" }}
+                className="lp02-btn-gold lp02-btn-full mt-auto"
               >
                 Get Full Report
               </a>
@@ -216,14 +188,14 @@ export default function Lp02() {
         {/* HOW IT WORKS */}
         <section className="fade-in">
           <SectionLabel>How it works</SectionLabel>
-          <div className="grid grid-cols-1 gap-10 md:grid-cols-3 md:gap-8">
+          <div className="grid grid-cols-1 gap-12 md:grid-cols-3 md:gap-8">
             {steps.map((step) => (
               <div key={step.num}>
-                <p className="mb-3 text-2xl font-semibold" style={{ color: "#24352D" }}>
-                  {step.num}
+                <p className="lp02-step-num mb-5">{step.num}</p>
+                <p className="mb-3 text-[15px] font-medium" style={{ color: "var(--green)" }}>
+                  {step.title}
                 </p>
-                <p className="mb-2 text-base font-semibold">{step.title}</p>
-                <p className="text-sm leading-relaxed" style={{ color: "#6E726C" }}>
+                <p className="text-[15px] leading-relaxed" style={{ color: "var(--grey)" }}>
                   {step.body}
                 </p>
               </div>
@@ -234,61 +206,53 @@ export default function Lp02() {
         <Divider />
 
         {/* FAQ */}
-        <section className="fade-in">
+        <section className="fade-in pb-4">
           <SectionLabel>Common questions</SectionLabel>
           <FaqAccordion />
         </section>
-
-        <Divider />
-
-        {/* FINAL CTA */}
-        <section className="fade-in">
-          <div
-            className="rounded-2xl px-6 py-10 text-center md:px-10 md:py-12"
-            style={{ backgroundColor: "#EDE9E0" }}
-          >
-            <h2 className="mb-3 text-2xl font-semibold leading-tight md:text-3xl">
-              Ready to understand your money in Japan?
-            </h2>
-            <p className="mb-8 text-base" style={{ color: "#6E726C" }}>
-              One report. Built entirely around your answers.
-            </p>
-            <div className="flex flex-wrap items-center justify-center gap-4">
-              <a
-                href={STRIPE_FULL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block rounded-full px-6 py-3 text-sm font-medium"
-                style={{ backgroundColor: "#24352D", color: "#F7F4EE" }}
-              >
-                Get the Full Report — ¥5,000
-              </a>
-              <a
-                href={STRIPE_BASIC}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-sm underline"
-                style={{ color: "#24352D" }}
-              >
-                or Basic for ¥1,000
-              </a>
-            </div>
-          </div>
-        </section>
-
-        {/* FOOTER */}
-        <footer className="fade-in mt-16 text-center">
-          <p className="mb-3 text-sm" style={{ color: "#6E726C" }}>
-            Questions?{" "}
-            <a href={`mailto:${EMAIL}`} className="underline" style={{ color: "#6E726C" }}>
-              {EMAIL}
-            </a>
-          </p>
-          <p className="text-xs" style={{ color: "#6E726C" }}>
-            © 2026 Compass. All rights reserved.
-          </p>
-        </footer>
       </main>
+
+      {/* FINAL CTA */}
+      <section className="fade-in lp02-cta mt-16">
+        <div className="mx-auto max-w-2xl px-6">
+          <h2 className="lp02-heading-lg mb-5">Ready to understand your money in Japan?</h2>
+          <p className="mb-10 text-[17px] leading-relaxed" style={{ color: "var(--green)" }}>
+            One report. Built entirely around your answers.
+          </p>
+          <div className="flex flex-wrap items-center justify-center gap-5">
+            <a
+              href={STRIPE_FULL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="lp02-btn-green"
+            >
+              Get the Full Report — ¥5,000
+            </a>
+            <a
+              href={STRIPE_BASIC}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="lp02-link text-sm"
+              style={{ color: "var(--green)", opacity: 0.65 }}
+            >
+              or Basic for ¥1,000
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* FOOTER */}
+      <footer className="fade-in lp02-footer px-6 py-14 text-center md:px-12">
+        <p className="mb-4 text-[13px]" style={{ color: "var(--grey)" }}>
+          Questions?{" "}
+          <a href={`mailto:${EMAIL}`} className="lp02-link" style={{ color: "var(--grey)" }}>
+            {EMAIL}
+          </a>
+        </p>
+        <p className="text-[11px] tracking-wide" style={{ color: "var(--grey)" }}>
+          © 2026 Compass. All rights reserved.
+        </p>
+      </footer>
     </div>
   );
 }

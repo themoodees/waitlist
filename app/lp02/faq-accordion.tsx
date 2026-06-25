@@ -29,20 +29,23 @@ export function FaqAccordion() {
       {faqs.map((item, i) => {
         const isOpen = openIndex === i;
         return (
-          <div key={item.q} className="border-t" style={{ borderColor: "#DAD4CA" }}>
+          <div key={item.q} className="border-t" style={{ borderColor: "var(--warm-grey)" }}>
             <button
               type="button"
               onClick={() => setOpenIndex(isOpen ? null : i)}
-              className="flex w-full items-center justify-between gap-4 py-5 text-left"
+              className="flex w-full items-center justify-between gap-4 py-8 text-left"
               aria-expanded={isOpen}
             >
-              <span className="text-base font-medium" style={{ color: "#24352D" }}>
+              <span
+                className="text-lg italic leading-snug md:text-xl"
+                style={{ fontFamily: "var(--font-head)", color: "var(--green)" }}
+              >
                 {item.q}
               </span>
               <span
                 className="shrink-0 text-lg transition-transform duration-200"
                 style={{
-                  color: "#6E726C",
+                  color: "var(--grey)",
                   transform: isOpen ? "rotate(180deg)" : "rotate(0deg)",
                 }}
                 aria-hidden
@@ -51,14 +54,14 @@ export function FaqAccordion() {
               </span>
             </button>
             {isOpen && (
-              <p className="pb-5 text-sm leading-relaxed" style={{ color: "#6E726C" }}>
+              <p className="pb-8 text-[15px] leading-relaxed" style={{ color: "var(--grey)" }}>
                 {item.a}
               </p>
             )}
           </div>
         );
       })}
-      <div className="border-t" style={{ borderColor: "#DAD4CA" }} />
+      <div className="lp02-divider" />
     </div>
   );
 }

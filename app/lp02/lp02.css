@@ -1,5 +1,206 @@
 @import "tailwindcss";
 
+:root {
+  --green: #24352d;
+  --gold: #b49a6c;
+  --cream: #f7f4ee;
+  --grey: #6e726c;
+  --warm-grey: #dad4ca;
+  --font-head: var(--font-cormorant), Georgia, serif;
+  --font-body: var(--font-inter), system-ui, sans-serif;
+}
+
+.lp02 {
+  background: var(--cream);
+  color: var(--green);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+.lp02-nav {
+  background: var(--cream);
+  border-bottom: 1px solid var(--warm-grey);
+}
+
+.lp02-section-label {
+  display: block;
+  margin-bottom: 16px;
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.lp02-heading-xl {
+  font-family: var(--font-head);
+  font-size: clamp(36px, 4.5vw, 56px);
+  font-weight: 500;
+  line-height: 1.1;
+  color: var(--green);
+}
+
+.lp02-heading-lg {
+  font-family: var(--font-head);
+  font-size: clamp(30px, 3.5vw, 44px);
+  font-weight: 500;
+  line-height: 1.15;
+  color: var(--green);
+}
+
+.lp02-heading-md {
+  font-family: var(--font-head);
+  font-size: clamp(26px, 3vw, 32px);
+  font-weight: 500;
+  line-height: 1.15;
+  color: var(--green);
+}
+
+.lp02-price {
+  font-family: var(--font-head);
+  font-size: clamp(36px, 4vw, 48px);
+  font-weight: 500;
+  line-height: 1;
+  color: var(--green);
+}
+
+.lp02-body {
+  font-family: var(--font-body);
+  color: var(--grey);
+  line-height: 1.75;
+}
+
+.lp02-body-green {
+  font-family: var(--font-body);
+  color: var(--green);
+  line-height: 1.75;
+}
+
+.lp02-divider {
+  height: 1px;
+  background: var(--warm-grey);
+}
+
+.lp02-divider-gold {
+  height: 1px;
+  background: var(--gold);
+}
+
+.lp02-btn-green {
+  display: inline-block;
+  background: var(--green);
+  color: var(--cream);
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 15px;
+  padding: 14px 28px;
+  border: none;
+  border-radius: 0;
+  text-decoration: none;
+  letter-spacing: 0.01em;
+}
+
+.lp02-btn-gold {
+  display: inline-block;
+  background: var(--gold);
+  color: var(--green);
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 15px;
+  padding: 14px 28px;
+  border: none;
+  border-radius: 0;
+  text-decoration: none;
+  letter-spacing: 0.01em;
+}
+
+.lp02-btn-full {
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+
+.lp02-link {
+  color: var(--green);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.lp02-badge {
+  display: inline-block;
+  background: var(--gold);
+  color: var(--green);
+  font-family: var(--font-body);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 6px 14px;
+}
+
+.lp02-card {
+  background: var(--cream);
+  padding: 32px 28px;
+}
+
+.lp02-card--basic {
+  border: 1px solid var(--warm-grey);
+}
+
+.lp02-card--full {
+  border: 1.5px solid var(--gold);
+}
+
+.lp02-feat-dot {
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--gold);
+  flex-shrink: 0;
+  margin-top: 7px;
+}
+
+.lp02-step-num {
+  font-family: var(--font-head);
+  font-size: 52px;
+  font-weight: 400;
+  line-height: 1;
+  color: var(--gold);
+}
+
+.lp02-closing {
+  font-family: var(--font-head);
+  font-style: italic;
+  font-size: clamp(20px, 2.5vw, 24px);
+  line-height: 1.4;
+  color: var(--gold);
+}
+
+.lp02-cta {
+  background: var(--gold);
+  padding: 64px 32px;
+  text-align: center;
+}
+
+.lp02-footer {
+  background: var(--green);
+  position: relative;
+}
+
+.lp02-footer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: var(--gold);
+}
+
 .fade-in {
   opacity: 0;
   transform: translateY(28px);
