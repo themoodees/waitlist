@@ -73,6 +73,31 @@
   }
 }
 
+.lp02-band {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  padding-top: 72px;
+  padding-bottom: 72px;
+  padding-left: max(24px, calc((100vw - 48rem) / 2));
+  padding-right: max(24px, calc((100vw - 48rem) / 2));
+}
+
+.lp02-empathy {
+  background: #24352d;
+}
+
+.lp02-empathy .lp02-empathy-quote {
+  font-family: var(--font-body);
+  color: var(--cream);
+  opacity: 0.9;
+  line-height: 1.75;
+}
+
+.lp02-how-it-works {
+  background: #dad4ca;
+}
+
 .lp02-section-label {
   display: block;
   margin-bottom: 16px;

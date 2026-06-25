@@ -124,13 +124,15 @@ export default function Lp02() {
         </section>
 
         <div className="lp02-divider-gold my-16 w-full" />
+      </main>
 
-        {/* DOES THIS SOUND LIKE YOU */}
-        <section className="fade-in">
+      {/* DOES THIS SOUND LIKE YOU */}
+      <section className="fade-in lp02-band lp02-empathy">
+        <div className="mx-auto max-w-3xl">
           <SectionLabel>Does this sound like you?</SectionLabel>
           <ul className="mb-10 space-y-5">
             {empathyQuotes.map((quote) => (
-              <li key={quote} className="lp02-body-green text-base md:text-[17px]">
+              <li key={quote} className="lp02-empathy-quote text-base md:text-[17px]">
                 &ldquo;{quote}&rdquo;
               </li>
             ))}
@@ -138,12 +140,12 @@ export default function Lp02() {
           <p className="lp02-closing">
             If any of that sounds familiar, this report was made for you.
           </p>
-        </section>
+        </div>
+      </section>
 
-        <Divider />
-
+      <main className="mx-auto max-w-3xl px-6 pb-0 md:px-12">
         {/* PRICING */}
-        <section id="pricing" className="fade-in">
+        <section id="pricing" className="fade-in pt-16 md:pt-20">
           <SectionLabel>Choose your depth</SectionLabel>
           <h2 className="lp02-heading-lg mb-10">Two reports. One clear direction.</h2>
 
@@ -184,11 +186,11 @@ export default function Lp02() {
             </div>
           </div>
         </section>
+      </main>
 
-        <Divider />
-
-        {/* HOW IT WORKS */}
-        <section className="fade-in">
+      {/* HOW IT WORKS */}
+      <section className="fade-in lp02-band lp02-how-it-works">
+        <div className="mx-auto max-w-3xl">
           <SectionLabel>How it works</SectionLabel>
           <div className="grid grid-cols-1 gap-12 md:grid-cols-3 md:gap-8">
             {steps.map((step) => (
@@ -201,12 +203,12 @@ export default function Lp02() {
               </div>
             ))}
           </div>
-        </section>
+        </div>
+      </section>
 
-        <Divider />
-
+      <main className="mx-auto max-w-3xl px-6 pb-0 md:px-12">
         {/* FAQ */}
-        <section className="fade-in pb-4">
+        <section className="fade-in pb-4 pt-16 md:pt-20">
           <SectionLabel>Common questions</SectionLabel>
           <FaqAccordion />
         </section>
