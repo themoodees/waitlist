@@ -32,7 +32,7 @@ export default function Lp02() {
 
       {/* HERO */}
       <section
-        className="flex min-h-screen flex-col justify-center px-6 py-24 md:px-12 lg:px-24"
+        className="fade-in flex min-h-screen flex-col justify-center px-6 py-24 md:px-12 lg:px-24"
         style={{ backgroundColor: "#F7F4EE" }}
       >
         <div className="max-w-3xl">
@@ -64,7 +64,7 @@ export default function Lp02() {
       </section>
 
       {/* EMPATHY SECTION */}
-      <section className="px-6 py-24 md:px-12 lg:px-24" style={{ backgroundColor: "#24352D" }}>
+      <section className="fade-in px-6 py-24 md:px-12 lg:px-24" style={{ backgroundColor: "#24352D" }}>
         <div className="max-w-3xl">
           <p
             className="mb-6 text-xs font-medium uppercase tracking-[0.15em]"
@@ -106,7 +106,7 @@ export default function Lp02() {
       </section>
 
       {/* WHAT YOU GET */}
-      <section className="px-6 py-24 md:px-12 lg:px-24" style={{ backgroundColor: "#F7F4EE" }}>
+      <section className="fade-in px-6 py-24 md:px-12 lg:px-24" style={{ backgroundColor: "#F7F4EE" }}>
         <div className="mx-auto max-w-5xl">
           <p
             className="mb-6 text-xs font-medium uppercase tracking-[0.15em]"
@@ -166,7 +166,7 @@ export default function Lp02() {
       </section>
 
       {/* PRICING */}
-      <section id="pricing" className="px-6 py-24 md:px-12 lg:px-24" style={{ backgroundColor: "#F7F4EE" }}>
+      <section id="pricing" className="fade-in px-6 py-24 md:px-12 lg:px-24" style={{ backgroundColor: "#F7F4EE" }}>
         <div className="mx-auto max-w-5xl">
           <p
             className="mb-6 text-xs font-medium uppercase tracking-[0.15em]"
@@ -314,7 +314,7 @@ export default function Lp02() {
       </section>
 
       {/* HOW IT WORKS */}
-      <section className="px-6 py-24 md:px-12 lg:px-24" style={{ backgroundColor: "#DAD4CA" }}>
+      <section className="fade-in px-6 py-24 md:px-12 lg:px-24" style={{ backgroundColor: "#DAD4CA" }}>
         <div className="mx-auto max-w-5xl">
           <p
             className="mb-6 text-xs font-medium uppercase tracking-[0.15em]"
@@ -374,7 +374,7 @@ export default function Lp02() {
       </section>
 
       {/* WHY COMPASS */}
-      <section className="px-6 py-24 md:px-12 lg:px-24" style={{ backgroundColor: "#F7F4EE" }}>
+      <section className="fade-in px-6 py-24 md:px-12 lg:px-24" style={{ backgroundColor: "#F7F4EE" }}>
         <div className="mx-auto max-w-3xl text-center">
           <p
             className="mb-6 text-xs font-medium uppercase tracking-[0.15em]"
@@ -405,7 +405,7 @@ export default function Lp02() {
       </section>
 
       {/* OBJECTIONS */}
-      <section className="px-6 py-24 md:px-12 lg:px-24" style={{ backgroundColor: "#24352D" }}>
+      <section className="fade-in px-6 py-24 md:px-12 lg:px-24" style={{ backgroundColor: "#24352D" }}>
         <div className="mx-auto max-w-3xl">
           <p
             className="mb-6 text-xs font-medium uppercase tracking-[0.15em]"
@@ -472,7 +472,7 @@ export default function Lp02() {
       </section>
 
       {/* FINAL CTA */}
-      <section className="px-6 py-24 text-center md:px-12 lg:px-24" style={{ backgroundColor: "#B49A6C" }}>
+      <section className="fade-in px-6 py-24 text-center md:px-12 lg:px-24" style={{ backgroundColor: "#B49A6C" }}>
         <div className="mx-auto max-w-2xl">
           <h2
             className="mb-6 text-4xl leading-tight md:text-5xl lg:text-6xl"
@@ -505,7 +505,7 @@ export default function Lp02() {
       </section>
 
       {/* FOOTER */}
-      <footer className="px-6 py-12 md:px-12 lg:px-24" style={{ backgroundColor: "#24352D" }}>
+      <footer className="fade-in px-6 py-12 md:px-12 lg:px-24" style={{ backgroundColor: "#24352D" }}>
         <div className="mb-8 h-px" style={{ backgroundColor: "#B49A6C" }} />
         <div className="flex flex-col gap-8 md:flex-row md:items-start md:justify-between">
           <div>
