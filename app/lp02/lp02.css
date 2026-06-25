@@ -22,6 +22,50 @@
 .lp02-nav {
   background: var(--cream);
   border-bottom: 1px solid var(--warm-grey);
+  padding: 18px 48px;
+}
+
+.lp02-nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.lp02-nav-logo-wrap {
+  flex-shrink: 1;
+  min-width: 0;
+  line-height: 0;
+}
+
+.lp02-nav-logo {
+  height: 44px;
+  width: auto;
+  max-width: 100%;
+}
+
+.lp02-nav-cta {
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+  .lp02-nav {
+    padding: 14px 16px;
+  }
+
+  .lp02-nav-inner {
+    gap: 10px;
+  }
+
+  .lp02-nav-logo {
+    height: 30px;
+  }
+
+  .lp02-nav-cta {
+    padding: 12px 16px;
+    font-size: 14px;
+  }
 }
 
 .lp02-section-label {

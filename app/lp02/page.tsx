@@ -70,17 +70,19 @@ export default function Lp02() {
   return (
     <div className="lp02">
       {/* NAV */}
-      <nav className="lp02-nav sticky top-0 z-50 px-6 py-[18px] md:px-12">
-        <div className="mx-auto flex max-w-3xl items-center justify-between gap-6">
-          <Image
-            src="/images/compass-logo-horizontal.png"
-            alt="Compass"
-            width={160}
-            height={44}
-            className="h-11 w-auto"
-            priority
-          />
-          <a href="#pricing" className="lp02-btn-green shrink-0 px-5 py-3 text-sm whitespace-nowrap">
+      <nav className="lp02-nav sticky top-0 z-50">
+        <div className="lp02-nav-inner mx-auto max-w-3xl">
+          <div className="lp02-nav-logo-wrap">
+            <Image
+              src="/images/compass-logo-horizontal.png"
+              alt="Compass"
+              width={160}
+              height={44}
+              className="lp02-nav-logo"
+              priority
+            />
+          </div>
+          <a href="#pricing" className="lp02-btn-green lp02-nav-cta">
             See Pricing
           </a>
         </div>
