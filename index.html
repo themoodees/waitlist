@@ -648,13 +648,51 @@
 
     .objection:first-child { border-top: 1px solid var(--grey); }
 
+    .objection-toggle {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 16px;
+      width: 100%;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      text-align: left;
+      color: inherit;
+      font: inherit;
+    }
+
     .objection-q {
       font-family: var(--font-head);
       font-style: italic;
       font-size: clamp(18px, 2.2vw, 24px);
       color: var(--cream);
       line-height: 1.3;
-      margin-bottom: 12px;
+      margin-bottom: 0;
+    }
+
+    .objection-chevron {
+      flex-shrink: 0;
+      font-family: var(--font-body);
+      font-size: 18px;
+      color: var(--grey);
+      transition: transform 0.2s ease;
+      line-height: 1.3;
+      margin-top: 4px;
+    }
+
+    .objection.is-open .objection-chevron {
+      transform: rotate(180deg);
+    }
+
+    .objection-a-wrap {
+      display: none;
+    }
+
+    .objection.is-open .objection-a-wrap {
+      display: block;
+      margin-top: 12px;
     }
 
     .objection-a {
@@ -1012,32 +1050,67 @@
       <h2>You might be thinking…</h2>
       <div class="objection-list">
         <div class="objection">
-          <p class="objection-q">"I already know I spend too much."</p>
-          <p class="objection-a">Knowing and understanding are different. This shows you why it's happening — and what to actually do about it, in the right order.</p>
+          <button type="button" class="objection-toggle" aria-expanded="false">
+            <span class="objection-q">"I already know I spend too much."</span>
+            <span class="objection-chevron" aria-hidden="true">↓</span>
+          </button>
+          <div class="objection-a-wrap">
+            <p class="objection-a">Knowing and understanding are different. This shows you why it's happening — and what to actually do about it, in the right order.</p>
+          </div>
         </div>
         <div class="objection">
-          <p class="objection-q">"Will this actually be personalised to me?"</p>
-          <p class="objection-a">Yes. Every Compass report is built around your specific answers. Your income, your habits, your goals in Japan. No two reports are the same.</p>
+          <button type="button" class="objection-toggle" aria-expanded="false">
+            <span class="objection-q">"Will this actually be personalised to me?"</span>
+            <span class="objection-chevron" aria-hidden="true">↓</span>
+          </button>
+          <div class="objection-a-wrap">
+            <p class="objection-a">Yes. Every Compass report is built around your specific answers. Your income, your habits, your goals in Japan. No two reports are the same.</p>
+          </div>
         </div>
         <div class="objection">
-          <p class="objection-q">"Is ¥3,000 worth it for a report?"</p>
-          <p class="objection-a">The Full Report looks at every specific expense in your life — convenience stores, delivery, subscriptions, travel, remittances, everything — and tells you exactly which ones to cut and which ones are worth keeping. Most readers find a pattern costing them ¥100,000 or more per year they had never actually quantified. The report pays for itself the first time you act on it.</p>
+          <button type="button" class="objection-toggle" aria-expanded="false">
+            <span class="objection-q">"Is ¥3,000 worth it for a report?"</span>
+            <span class="objection-chevron" aria-hidden="true">↓</span>
+          </button>
+          <div class="objection-a-wrap">
+            <p class="objection-a">The Full Report looks at every specific expense in your life — convenience stores, delivery, subscriptions, travel, remittances, everything — and tells you exactly which ones to cut and which ones are worth keeping. Most readers find a pattern costing them ¥100,000 or more per year they had never actually quantified. The report pays for itself the first time you act on it.</p>
+          </div>
         </div>
         <div class="objection">
-          <p class="objection-q">"What makes the Full Report different from just budgeting myself?"</p>
-          <p class="objection-a">A budget tells you what you spent. The Full Report tells you why — and what it means. Every expense category in your life is examined in the context of your income, your goals, and your situation in Japan. You don't get a spreadsheet back. You get a precise, prioritised plan written for the specific person who filled in the questionnaire.</p>
+          <button type="button" class="objection-toggle" aria-expanded="false">
+            <span class="objection-q">"What makes the Full Report different from just budgeting myself?"</span>
+            <span class="objection-chevron" aria-hidden="true">↓</span>
+          </button>
+          <div class="objection-a-wrap">
+            <p class="objection-a">A budget tells you what you spent. The Full Report tells you why — and what it means. Every expense category in your life is examined in the context of your income, your goals, and your situation in Japan. You don't get a spreadsheet back. You get a precise, prioritised plan written for the specific person who filled in the questionnaire.</p>
+          </div>
         </div>
         <div class="objection">
-          <p class="objection-q">"I don't have time to fill out a long questionnaire."</p>
-          <p class="objection-a">The Basic Report takes 5 minutes and gives you a real answer today. The Full Report takes 20–30 — the length of a commute — and gives you a complete financial plan for the next 12 months. You choose the depth you're ready for.</p>
+          <button type="button" class="objection-toggle" aria-expanded="false">
+            <span class="objection-q">"I don't have time to fill out a long questionnaire."</span>
+            <span class="objection-chevron" aria-hidden="true">↓</span>
+          </button>
+          <div class="objection-a-wrap">
+            <p class="objection-a">The Basic Report takes 5 minutes and gives you a real answer today. The Full Report takes 20–30 — the length of a commute — and gives you a complete financial plan for the next 12 months. You choose the depth you're ready for.</p>
+          </div>
         </div>
         <div class="objection">
-          <p class="objection-q">"I'll sort my finances out when things calm down."</p>
-          <p class="objection-a">Things don't calm down in Japan — they just continue. The Basic Report exists precisely for this: a clear picture of where you are, in 5 minutes, without waiting until you have more time or more money.</p>
+          <button type="button" class="objection-toggle" aria-expanded="false">
+            <span class="objection-q">"I'll sort my finances out when things calm down."</span>
+            <span class="objection-chevron" aria-hidden="true">↓</span>
+          </button>
+          <div class="objection-a-wrap">
+            <p class="objection-a">Things don't calm down in Japan — they just continue. The Basic Report exists precisely for this: a clear picture of where you are, in 5 minutes, without waiting until you have more time or more money.</p>
+          </div>
         </div>
         <div class="objection">
-          <p class="objection-q">"What if I'm not earning much yet?"</p>
-          <p class="objection-a">The Basic Report was built for exactly this moment — before you have everything figured out. It shows you the one pattern doing the most damage right now, and what to do about it first. You don't need a high income to benefit from understanding where your money is going.</p>
+          <button type="button" class="objection-toggle" aria-expanded="false">
+            <span class="objection-q">"What if I'm not earning much yet?"</span>
+            <span class="objection-chevron" aria-hidden="true">↓</span>
+          </button>
+          <div class="objection-a-wrap">
+            <p class="objection-a">The Basic Report was built for exactly this moment — before you have everything figured out. It shows you the one pattern doing the most damage right now, and what to do about it first. You don't need a high income to benefit from understanding where your money is going.</p>
+          </div>
         </div>
       </div>
     </div>
