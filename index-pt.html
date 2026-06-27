@@ -648,13 +648,51 @@
 
     .objection:first-child { border-top: 1px solid var(--grey); }
 
+    .objection-toggle {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 16px;
+      width: 100%;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      text-align: left;
+      color: inherit;
+      font: inherit;
+    }
+
     .objection-q {
       font-family: var(--font-head);
       font-style: italic;
       font-size: clamp(18px, 2.2vw, 24px);
       color: var(--cream);
       line-height: 1.3;
-      margin-bottom: 12px;
+      margin-bottom: 0;
+    }
+
+    .objection-chevron {
+      flex-shrink: 0;
+      font-family: var(--font-body);
+      font-size: 18px;
+      color: var(--grey);
+      transition: transform 0.2s ease;
+      line-height: 1.3;
+      margin-top: 4px;
+    }
+
+    .objection.is-open .objection-chevron {
+      transform: rotate(180deg);
+    }
+
+    .objection-a-wrap {
+      display: none;
+    }
+
+    .objection.is-open .objection-a-wrap {
+      display: block;
+      margin-top: 12px;
     }
 
     .objection-a {
@@ -1012,32 +1050,67 @@
       <h2>Você pode estar pensando…</h2>
       <div class="objection-list">
         <div class="objection">
-          <p class="objection-q">"Eu já sei que gasto demais."</p>
-          <p class="objection-a">Saber e entender são coisas diferentes. Isso mostra por que está acontecendo — e o que fazer a respeito, na ordem certa.</p>
+          <button type="button" class="objection-toggle" aria-expanded="false">
+            <span class="objection-q">"Eu já sei que gasto demais."</span>
+            <span class="objection-chevron" aria-hidden="true">↓</span>
+          </button>
+          <div class="objection-a-wrap">
+            <p class="objection-a">Saber e entender são coisas diferentes. Isso mostra por que está acontecendo — e o que fazer a respeito, na ordem certa.</p>
+          </div>
         </div>
         <div class="objection">
-          <p class="objection-q">"Este relatório será realmente personalizado para mim?"</p>
-          <p class="objection-a">Sim. Cada relatório Compass é construído em torno das suas respostas específicas. Sua renda, seus hábitos, seus objetivos no Japão. Não há dois iguais.</p>
+          <button type="button" class="objection-toggle" aria-expanded="false">
+            <span class="objection-q">"Este relatório será realmente personalizado para mim?"</span>
+            <span class="objection-chevron" aria-hidden="true">↓</span>
+          </button>
+          <div class="objection-a-wrap">
+            <p class="objection-a">Sim. Cada relatório Compass é construído em torno das suas respostas específicas. Sua renda, seus hábitos, seus objetivos no Japão. Não há dois iguais.</p>
+          </div>
         </div>
         <div class="objection">
-          <p class="objection-q">"Vale a pena pagar ¥3.000 por um relatório?"</p>
-          <p class="objection-a">O Relatório Completo analisa cada despesa específica da sua vida — conveniências, delivery, assinaturas, viagens, remessas, tudo — e diz exatamente quais cortar e quais vale a pena manter. A maioria dos leitores descobre um padrão que custa ¥100.000 ou mais por ano e que nunca tinham quantificado. O relatório se paga na primeira vez que você age com base nele.</p>
+          <button type="button" class="objection-toggle" aria-expanded="false">
+            <span class="objection-q">"Vale a pena pagar ¥3.000 por um relatório?"</span>
+            <span class="objection-chevron" aria-hidden="true">↓</span>
+          </button>
+          <div class="objection-a-wrap">
+            <p class="objection-a">O Relatório Completo analisa cada despesa específica da sua vida — conveniências, delivery, assinaturas, viagens, remessas, tudo — e diz exatamente quais cortar e quais vale a pena manter. A maioria dos leitores descobre um padrão que custa ¥100.000 ou mais por ano e que nunca tinham quantificado. O relatório se paga na primeira vez que você age com base nele.</p>
+          </div>
         </div>
         <div class="objection">
-          <p class="objection-q">"O que diferencia o Relatório Completo de simplesmente fazer um orçamento sozinho?"</p>
-          <p class="objection-a">Um orçamento diz o que você gastou. O Relatório Completo diz por quê — e o que isso significa. Cada categoria de despesa da sua vida é examinada no contexto da sua renda, seus objetivos e sua situação no Japão. Você não recebe uma planilha. Você recebe um plano preciso e priorizado escrito para a pessoa específica que preencheu o questionário.</p>
+          <button type="button" class="objection-toggle" aria-expanded="false">
+            <span class="objection-q">"O que diferencia o Relatório Completo de simplesmente fazer um orçamento sozinho?"</span>
+            <span class="objection-chevron" aria-hidden="true">↓</span>
+          </button>
+          <div class="objection-a-wrap">
+            <p class="objection-a">Um orçamento diz o que você gastou. O Relatório Completo diz por quê — e o que isso significa. Cada categoria de despesa da sua vida é examinada no contexto da sua renda, seus objetivos e sua situação no Japão. Você não recebe uma planilha. Você recebe um plano preciso e priorizado escrito para a pessoa específica que preencheu o questionário.</p>
+          </div>
         </div>
         <div class="objection">
-          <p class="objection-q">"Não tenho tempo para preencher um questionário longo."</p>
-          <p class="objection-a">O Relatório Básico leva 5 minutos e dá uma resposta real hoje. O Completo leva 20–30 — o tempo de um trajeto de metrô — e entrega um plano financeiro completo para os próximos 12 meses. Você escolhe a profundidade que está pronto para encarar.</p>
+          <button type="button" class="objection-toggle" aria-expanded="false">
+            <span class="objection-q">"Não tenho tempo para preencher um questionário longo."</span>
+            <span class="objection-chevron" aria-hidden="true">↓</span>
+          </button>
+          <div class="objection-a-wrap">
+            <p class="objection-a">O Relatório Básico leva 5 minutos e dá uma resposta real hoje. O Completo leva 20–30 — o tempo de um trajeto de metrô — e entrega um plano financeiro completo para os próximos 12 meses. Você escolhe a profundidade que está pronto para encarar.</p>
+          </div>
         </div>
         <div class="objection">
-          <p class="objection-q">"Vou organizar minhas finanças quando as coisas acalmarem."</p>
-          <p class="objection-a">As coisas não acalmam no Japão — elas simplesmente continuam. O Relatório Básico existe exatamente para isso: um quadro claro de onde você está, em 5 minutos, sem esperar ter mais tempo ou mais dinheiro.</p>
+          <button type="button" class="objection-toggle" aria-expanded="false">
+            <span class="objection-q">"Vou organizar minhas finanças quando as coisas acalmarem."</span>
+            <span class="objection-chevron" aria-hidden="true">↓</span>
+          </button>
+          <div class="objection-a-wrap">
+            <p class="objection-a">As coisas não acalmam no Japão — elas simplesmente continuam. O Relatório Básico existe exatamente para isso: um quadro claro de onde você está, em 5 minutos, sem esperar ter mais tempo ou mais dinheiro.</p>
+          </div>
         </div>
         <div class="objection">
-          <p class="objection-q">"E se eu ainda não estiver ganhando muito?"</p>
-          <p class="objection-a">O Relatório Básico foi feito exatamente para este momento — antes de você ter tudo resolvido. Ele mostra o único padrão causando mais dano agora e o que fazer primeiro. Você não precisa de uma renda alta para se beneficiar de entender para onde vai o seu dinheiro.</p>
+          <button type="button" class="objection-toggle" aria-expanded="false">
+            <span class="objection-q">"E se eu ainda não estiver ganhando muito?"</span>
+            <span class="objection-chevron" aria-hidden="true">↓</span>
+          </button>
+          <div class="objection-a-wrap">
+            <p class="objection-a">O Relatório Básico foi feito exatamente para este momento — antes de você ter tudo resolvido. Ele mostra o único padrão causando mais dano agora e o que fazer primeiro. Você não precisa de uma renda alta para se beneficiar de entender para onde vai o seu dinheiro.</p>
+          </div>
         </div>
       </div>
     </div>
