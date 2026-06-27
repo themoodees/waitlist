@@ -1,5 +1,5 @@
 import { LandingScripts } from "../landing-scripts";
-import "../lp02/lp02.css";
+import "./lppt.css";
 
 export default function LpptLayout({
   children,

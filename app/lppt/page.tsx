@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { FaqAccordion } from "./faq-accordion";
+import "./lppt.css";
 
 const STRIPE_BASIC = "https://buy.stripe.com/9B68wPcbq1kH98v3ZEfw401";
 const STRIPE_FULL = "https://buy.stripe.com/aFafZh1wM0gD3Ob3ZEfw400";
