@@ -2,8 +2,8 @@ import Image from "next/image";
 import { FaqAccordion } from "./faq-accordion";
 import "./lppt.css";
 
-const STRIPE_BASIC = "https://buy.stripe.com/9B68wPcbq1kH98v3ZEfw401";
-const STRIPE_FULL = "https://buy.stripe.com/aFafZh1wM0gD3Ob3ZEfw400";
+const STRIPE_BASIC = "https://buy.stripe.com/3cIdR96R6fbx3Ob7bQfw403";
+const STRIPE_FULL = "https://buy.stripe.com/dRmdR9grG3sP84rao2fw404";
 const EMAIL = "hello@compasss.life";
 
 const empathyQuotes = [
