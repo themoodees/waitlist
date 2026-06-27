@@ -1,0 +1,1093 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Compass — Análise Financeira Personalizada para Estrangeiros no Japão</title>
+  <meta name="description" content="O Compass é um relatório de análise financeira personalizado para estrangeiros que vivem no Japão. Responda algumas perguntas e receba um relatório claro e prático na sua caixa de entrada." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ─── Reset ─────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --green:     #24352D;
+      --gold:      #B49A6C;
+      --cream:     #F7F4EE;
+      --grey:      #6E726C;
+      --warm-grey: #DAD4CA;
+      --font-head: 'Cormorant Garamond', Georgia, serif;
+      --font-body: 'Inter', system-ui, sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--cream);
+      color: var(--green);
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ─── Shared ─────────────────────────────────────────── */
+    .section-label {
+      display: block;
+      font-family: var(--font-body);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 20px;
+    }
+
+    .btn-green {
+      display: inline-block;
+      background: var(--green);
+      color: var(--cream);
+      font-family: var(--font-body);
+      font-weight: 500;
+      font-size: 15px;
+      padding: 16px 36px;
+      border: none;
+      border-radius: 0;
+      cursor: pointer;
+      text-decoration: none;
+      letter-spacing: 0.01em;
+    }
+
+    .btn-gold {
+      display: inline-block;
+      background: var(--gold);
+      color: var(--green);
+      font-family: var(--font-body);
+      font-weight: 500;
+      font-size: 15px;
+      padding: 16px 36px;
+      border: none;
+      border-radius: 0;
+      cursor: pointer;
+      text-decoration: none;
+      letter-spacing: 0.01em;
+    }
+
+    .btn-full { width: 100%; text-align: center; display: block; }
+
+    /* ─── 1. NAVBAR ──────────────────────────────────────── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--cream);
+      border-bottom: 1px solid var(--warm-grey);
+      padding: 18px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: baseline;
+      gap: 18px;
+    }
+
+    .nav-logo {
+      font-family: var(--font-head);
+      font-size: 22px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      color: var(--green);
+      text-transform: uppercase;
+      text-decoration: none;
+    }
+
+    .nav-tagline {
+      font-family: var(--font-body);
+      font-size: 12px;
+      color: var(--grey);
+    }
+
+    /* ─── 2. HERO ────────────────────────────────────────── */
+    .hero {
+      background: var(--cream);
+      padding: 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 88vh;
+      position: relative;
+    }
+
+    .hero-content {
+      padding: 100px 56px 100px 48px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .hero-inner { max-width: 560px; width: 100%; }
+
+    .hero h1 {
+      font-family: var(--font-head);
+      font-size: clamp(36px, 4.5vw, 64px);
+      font-weight: 500;
+      line-height: 1.1;
+      color: var(--green);
+      margin-bottom: 32px;
+    }
+
+    .hero-sub {
+      font-family: var(--font-body);
+      font-size: 17px;
+      color: var(--grey);
+      line-height: 1.75;
+      margin-bottom: 44px;
+    }
+
+    .hero-trust {
+      font-family: var(--font-body);
+      font-size: 13px;
+      color: var(--grey);
+      margin-top: 20px;
+    }
+
+    .hero-image {
+      background: var(--warm-grey);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 500px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      position: absolute;
+      inset: 0;
+      /* TODO: Replace with lifestyle photo — e.g. Tokyo street or someone at a desk */
+      display: none;
+    }
+
+    .img-placeholder-label {
+      font-family: var(--font-body);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--grey);
+      text-align: center;
+      line-height: 1.6;
+    }
+
+    .hero-divider {
+      position: absolute;
+      bottom: -1px;
+      left: 0; right: 0;
+      height: 1px;
+      background: var(--gold);
+    }
+
+    /* ─── 3. EMPATHY ─────────────────────────────────────── */
+    .empathy {
+      background: var(--green);
+      padding: 100px 48px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .empathy-inner { max-width: 720px; width: 100%; }
+
+    .empathy h2 {
+      font-family: var(--font-head);
+      font-size: clamp(32px, 4vw, 52px);
+      font-weight: 500;
+      color: var(--cream);
+      line-height: 1.15;
+      margin-bottom: 32px;
+    }
+
+    .empathy-body {
+      font-family: var(--font-body);
+      font-size: 17px;
+      color: var(--cream);
+      opacity: 0.85;
+      line-height: 1.8;
+      margin-bottom: 48px;
+    }
+
+    .pain-points {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      margin-bottom: 52px;
+      text-align: left;
+    }
+
+    .pain-points li {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      font-family: var(--font-body);
+      font-size: 16px;
+      color: var(--cream);
+      opacity: 0.9;
+      line-height: 1.6;
+    }
+
+    .pain-dot {
+      display: inline-block;
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--gold);
+      flex-shrink: 0;
+      margin-top: 8px;
+    }
+
+    .empathy-closing {
+      font-family: var(--font-head);
+      font-style: italic;
+      font-size: clamp(20px, 2.5vw, 28px);
+      color: var(--gold);
+      line-height: 1.4;
+    }
+
+    /* ─── 4. WHAT YOU GET ────────────────────────────────── */
+    .what-you-get {
+      background: var(--cream);
+      padding: 100px 48px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .what-you-get-inner { max-width: 900px; width: 100%; }
+
+    .report-mockup {
+      margin-top: 56px;
+      width: 100%;
+      height: 340px;
+      background: var(--warm-grey);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--warm-grey);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .report-mockup img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      position: absolute;
+      inset: 0;
+      /* TODO: Replace with report sample / mockup image */
+      display: none;
+    }
+
+    .what-you-get h2 {
+      font-family: var(--font-head);
+      font-size: clamp(30px, 4vw, 50px);
+      font-weight: 500;
+      color: var(--green);
+      line-height: 1.15;
+      margin-bottom: 20px;
+    }
+
+    .what-you-get-sub {
+      font-family: var(--font-body);
+      font-size: 16px;
+      color: var(--grey);
+      line-height: 1.75;
+      max-width: 680px;
+      margin: 0 auto 60px;
+    }
+
+    .cards-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .card {
+      background: var(--cream);
+      border: 1px solid var(--warm-grey);
+      padding: 40px 36px;
+      text-align: left;
+    }
+
+    .card-label {
+      display: block;
+      font-family: var(--font-body);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 16px;
+    }
+
+    .card p {
+      font-family: var(--font-body);
+      font-size: 15px;
+      color: var(--grey);
+      line-height: 1.7;
+    }
+
+    /* ─── 5. PRICING ─────────────────────────────────────── */
+    .pricing {
+      background: var(--cream);
+      padding: 100px 48px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      border-top: 1px solid var(--warm-grey);
+    }
+
+    .pricing-inner { max-width: 900px; width: 100%; }
+
+    .pricing h2 {
+      font-family: var(--font-head);
+      font-size: clamp(30px, 4vw, 50px);
+      font-weight: 500;
+      color: var(--green);
+      line-height: 1.15;
+      margin-bottom: 20px;
+    }
+
+    .pricing-sub {
+      font-family: var(--font-body);
+      font-size: 16px;
+      color: var(--grey);
+      line-height: 1.75;
+      max-width: 620px;
+      margin: 0 auto 60px;
+    }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      text-align: left;
+    }
+
+    .pricing-card {
+      background: var(--cream);
+      padding: 44px 40px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .pricing-card--basic { border: 1px solid var(--warm-grey); }
+    .pricing-card--full  { border: 1.5px solid var(--gold); }
+
+    .recommended-badge {
+      display: inline-block;
+      background: var(--gold);
+      color: var(--green);
+      font-family: var(--font-body);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border-radius: 0;
+      margin-bottom: 20px;
+      width: fit-content;
+    }
+
+    .pricing-card h3 {
+      font-family: var(--font-head);
+      font-size: clamp(26px, 3vw, 36px);
+      font-weight: 500;
+      color: var(--green);
+      line-height: 1.15;
+      margin-bottom: 16px;
+    }
+
+    .pricing-card-desc {
+      font-family: var(--font-body);
+      font-size: 15px;
+      color: var(--grey);
+      line-height: 1.7;
+      margin-bottom: 28px;
+    }
+
+    .pricing-divider {
+      height: 1px;
+      background: var(--warm-grey);
+      margin-bottom: 28px;
+    }
+
+    .pricing-price {
+      font-family: var(--font-head);
+      font-size: clamp(36px, 4vw, 52px);
+      font-weight: 500;
+      color: var(--green);
+      line-height: 1;
+      margin-bottom: 10px;
+    }
+
+    .pricing-time {
+      font-family: var(--font-body);
+      font-size: 13px;
+      color: var(--grey);
+      margin-bottom: 32px;
+    }
+
+    .features-label {
+      display: block;
+      font-family: var(--font-body);
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--grey);
+      margin-bottom: 20px;
+    }
+
+    .features-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-bottom: 36px;
+      flex: 1;
+    }
+
+    .features-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-family: var(--font-body);
+      font-size: 14px;
+      line-height: 1.6;
+      color: var(--grey);
+    }
+
+    .feat-dot {
+      display: inline-block;
+      width: 5px; height: 5px;
+      border-radius: 50%;
+      background: var(--gold);
+      flex-shrink: 0;
+      margin-top: 7px;
+    }
+
+    .feat-title {
+      font-weight: 600;
+      color: var(--green);
+    }
+
+    .pricing-trust {
+      font-family: var(--font-body);
+      font-size: 12px;
+      color: var(--grey);
+      text-align: center;
+      margin-top: 12px;
+    }
+
+    /* ─── 6. HOW IT WORKS ────────────────────────────────── */
+    .how-it-works {
+      background: var(--warm-grey);
+      padding: 100px 48px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .how-it-works h2 {
+      font-family: var(--font-head);
+      font-size: clamp(30px, 4vw, 50px);
+      font-weight: 500;
+      color: var(--green);
+      line-height: 1.15;
+      margin-bottom: 64px;
+    }
+
+    .steps {
+      display: flex;
+      align-items: flex-start;
+      max-width: 900px;
+      width: 100%;
+    }
+
+    .step { flex: 1; text-align: left; }
+
+    .step-divider {
+      flex-shrink: 0;
+      width: 1px;
+      background: var(--gold);
+      margin: 80px 40px 0;
+      align-self: stretch;
+    }
+
+    .step-number {
+      font-family: var(--font-head);
+      font-size: 52px;
+      font-weight: 400;
+      color: var(--gold);
+      line-height: 1;
+      margin-bottom: 20px;
+      display: block;
+    }
+
+    .step h3 {
+      font-family: var(--font-body);
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--green);
+      margin-bottom: 12px;
+    }
+
+    .step p {
+      font-family: var(--font-body);
+      font-size: 15px;
+      color: var(--grey);
+      line-height: 1.7;
+    }
+
+    /* ─── 7. WHY COMPASS ─────────────────────────────────── */
+    .why-compass {
+      background: var(--cream);
+      padding: 100px 48px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+      box-sizing: border-box;
+    }
+
+    .why-compass-text { display: flex; flex-direction: column; }
+
+    .why-compass h2 {
+      font-family: var(--font-head);
+      font-size: clamp(30px, 4vw, 50px);
+      font-weight: 500;
+      color: var(--green);
+      line-height: 1.15;
+      margin-bottom: 28px;
+    }
+
+    .why-compass-body {
+      font-family: var(--font-body);
+      font-size: 16px;
+      color: var(--grey);
+      line-height: 1.8;
+      margin-bottom: 48px;
+    }
+
+    .pull-quote-wrap { max-width: 100%; width: 100%; }
+
+    .why-compass-image {
+      background: var(--warm-grey);
+      height: 480px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .why-compass-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      position: absolute;
+      inset: 0;
+      /* TODO: Replace with portrait or atmospheric Japan photo */
+      display: none;
+    }
+
+    .pull-quote-line { height: 1px; background: var(--gold); display: block; }
+
+    .pull-quote {
+      font-family: var(--font-head);
+      font-style: italic;
+      font-size: clamp(22px, 3vw, 36px);
+      color: var(--green);
+      line-height: 1.35;
+      padding: 32px 0;
+    }
+
+    /* ─── 8. OBJECTIONS ──────────────────────────────────── */
+    .objections {
+      background: var(--green);
+      padding: 100px 48px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .objections-inner { max-width: 720px; width: 100%; }
+
+    .objections h2 {
+      font-family: var(--font-head);
+      font-size: clamp(30px, 4vw, 50px);
+      font-weight: 500;
+      color: var(--cream);
+      line-height: 1.15;
+      margin-bottom: 56px;
+    }
+
+    .objection-list { display: flex; flex-direction: column; }
+
+    .objection {
+      padding: 32px 0;
+      border-bottom: 1px solid var(--grey);
+      text-align: left;
+    }
+
+    .objection:first-child { border-top: 1px solid var(--grey); }
+
+    .objection-q {
+      font-family: var(--font-head);
+      font-style: italic;
+      font-size: clamp(18px, 2.2vw, 24px);
+      color: var(--cream);
+      line-height: 1.3;
+      margin-bottom: 12px;
+    }
+
+    .objection-a {
+      font-family: var(--font-body);
+      font-size: 15px;
+      color: var(--grey);
+      line-height: 1.7;
+    }
+
+    /* ─── 9. FINAL CTA ───────────────────────────────────── */
+    .final-cta {
+      background: var(--gold);
+      padding: 100px 48px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .final-cta h2 {
+      font-family: var(--font-head);
+      font-size: clamp(30px, 4vw, 56px);
+      font-weight: 500;
+      color: var(--green);
+      line-height: 1.15;
+      max-width: 680px;
+      margin-bottom: 20px;
+    }
+
+    .final-cta-sub {
+      font-family: var(--font-body);
+      font-size: 17px;
+      color: var(--green);
+      line-height: 1.65;
+      max-width: 520px;
+      margin-bottom: 44px;
+    }
+
+    .final-cta-secondary {
+      font-family: var(--font-body);
+      font-size: 14px;
+      color: var(--green);
+      opacity: 0.65;
+      margin-top: 16px;
+    }
+
+    .final-cta-secondary a {
+      color: var(--green);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .final-cta-trust {
+      font-family: var(--font-body);
+      font-size: 13px;
+      color: var(--green);
+      opacity: 0.7;
+      margin-top: 20px;
+    }
+
+    /* ─── 10. FOOTER ──────────────────────────────────────── */
+    footer {
+      background: var(--green);
+      padding: 56px 48px 32px;
+      position: relative;
+    }
+
+    footer::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 1px;
+      background: var(--gold);
+    }
+
+    .footer-main {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 48px;
+      gap: 32px;
+    }
+
+    .footer-logo {
+      font-family: var(--font-head);
+      font-size: 20px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      color: var(--cream);
+      text-transform: uppercase;
+      text-decoration: none;
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .footer-tagline {
+      font-family: var(--font-body);
+      font-size: 12px;
+      color: var(--grey);
+    }
+
+    .footer-contact {
+      font-family: var(--font-body);
+      font-size: 13px;
+      color: var(--grey);
+      text-align: right;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding-top: 24px;
+      text-align: center;
+    }
+
+    .footer-copy {
+      font-family: var(--font-body);
+      font-size: 11px;
+      color: var(--grey);
+      letter-spacing: 0.02em;
+    }
+
+    /* ─── FADE IN ───────────────────────────────────────── */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ─── RESPONSIVE ─────────────────────────────────────── */
+    @media (max-width: 768px) {
+      nav { padding: 16px 24px; flex-wrap: nowrap; gap: 16px; }
+      .nav-tagline { display: none; }
+
+      .hero         { grid-template-columns: 1fr; min-height: auto; }
+      .hero-content { padding: 64px 24px 56px; }
+      .hero-image   { min-height: 260px; }
+
+      .empathy      { padding: 72px 24px; }
+      .what-you-get { padding: 72px 24px; }
+      .pricing      { padding: 72px 24px; }
+      .how-it-works { padding: 72px 24px; }
+
+      .why-compass  { grid-template-columns: 1fr; gap: 40px; padding: 72px 24px; max-width: 100%; }
+      .why-compass-image { height: 280px; }
+
+      .objections   { padding: 72px 24px; }
+      .final-cta    { padding: 72px 24px; }
+      footer        { padding: 48px 24px 28px; }
+
+      .cards-grid   { grid-template-columns: 1fr; }
+      .pricing-grid { grid-template-columns: 1fr; gap: 20px; }
+      .report-mockup { height: 220px; }
+
+      .steps { flex-direction: column; gap: 48px; }
+      .step-divider { display: none; }
+
+      .footer-main { flex-direction: column; gap: 28px; }
+      .footer-contact { text-align: left; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ─── 1. NAVBAR ──────────────────────────────────────── -->
+  <nav>
+    <div class="nav-left">
+      <a href="#" class="nav-logo">Compass</a>
+      <span class="nav-tagline">Encontre clareza. Encontre direção.</span>
+    </div>
+    <a href="#precos" class="btn-green">Ver Preços</a>
+  </nav>
+
+  <!-- ─── 2. HERO ────────────────────────────────────────── -->
+  <section class="hero fade-in">
+    <div class="hero-content">
+      <div class="hero-inner">
+        <h1>Você ganha. Você gasta. Mas para onde vai tudo isso?</h1>
+        <p class="hero-sub">O Compass é uma análise financeira pessoal feita para estrangeiros que vivem no Japão. Responda algumas perguntas sobre o seu dinheiro e enviaremos um relatório claro e personalizado sobre os seus hábitos — mais um plano simples para recuperar o controlo.</p>
+        <!-- TODO: Replace with Stripe payment link -->
+        <a href="#precos" class="btn-gold">→ Encontre o Seu Relatório</a>
+        <p class="hero-trust">A partir de ¥1.000 · Totalmente personalizado para as suas respostas · Entregue na sua caixa de entrada</p>
+      </div>
+    </div>
+    <!-- TODO: Replace with lifestyle photo — e.g. Tokyo street scene or person at a desk in Japan -->
+    <div class="hero-image">
+      <img src="../images/hero-image.jpg" alt="Vida no Japão" />
+      <span class="img-placeholder-label">Foto de estilo de vida<br>Tóquio / Japão</span>
+    </div>
+    <div class="hero-divider"></div>
+  </section>
+
+  <!-- ─── 3. EMPATHY ─────────────────────────────────────── -->
+  <section class="empathy fade-in">
+    <div class="empathy-inner">
+      <span class="section-label">Por Que Isso Importa</span>
+      <h2>Viver no Japão muda a sua relação com o dinheiro.</h2>
+      <p class="empathy-body">O convenience store em cada esquina. As máquinas de venda automática. As entregas à noite. A pressão social para acompanhar os outros. A pensão e o seguro de saúde que não tem a certeza de estar a gerir corretamente. A maioria dos estrangeiros aqui vai gerindo o dia a dia — mas sem realmente entender o seu dinheiro.</p>
+      <ul class="pain-points">
+        <li><span class="pain-dot"></span><span>"Ganho um bom salário, mas nunca consigo poupar nada."</span></li>
+        <li><span class="pain-dot"></span><span>"Não sei bem o que gasto — só verifico o saldo e fico a torcer."</span></li>
+        <li><span class="pain-dot"></span><span>"O sistema financeiro japonês confunde-me. NISA? iDeCo? Não sei por onde começar."</span></li>
+        <li><span class="pain-dot"></span><span>"Amazon, convenience stores, Uber Eats… vai acumulando, mas não sei quanto."</span></li>
+        <li><span class="pain-dot"></span><span>"Quero viajar, poupar e investir — mas não consigo fazer os três ao mesmo tempo."</span></li>
+      </ul>
+      <p class="empathy-closing">Se alguma destas frases lhe soa familiar — este relatório foi feito para si.</p>
+    </div>
+  </section>
+
+  <!-- ─── 4. WHAT YOU GET ────────────────────────────────── -->
+  <section class="what-you-get fade-in">
+    <div class="what-you-get-inner">
+      <span class="section-label">O Que Recebe</span>
+      <h2>Cada relatório Compass começa por si.</h2>
+      <p class="what-you-get-sub">Antes de qualquer coisa, lemos o que escreveu. O seu rendimento, os seus hábitos, a sua situação no Japão, os seus objetivos. O que recebe de volta não é um modelo com o seu nome — é um relatório construído em torno da pessoa específica que preencheu o questionário. Não há dois iguais.</p>
+      <div class="cards-grid">
+        <div class="card">
+          <span class="card-label">A Sua Situação Financeira</span>
+          <p>Uma visão clara de para onde vai o seu dinheiro a cada mês — mapeada em relação ao seu rendimento, aos seus custos fixos e aos padrões que pode não ter notado.</p>
+        </div>
+        <div class="card">
+          <span class="card-label">O Seu Maior Desperdício de Dinheiro</span>
+          <p>A área que mais prejudica as suas finanças agora. Identificada, explicada e — no Relatório Completo — quantificada até ao custo anual.</p>
+        </div>
+        <div class="card">
+          <span class="card-label">A Sua Personalidade Financeira</span>
+          <p>Uma leitura de como e porquê gasta da forma que gasta — os padrões emocionais e situacionais por trás dos números, não apenas os números em si.</p>
+        </div>
+        <div class="card">
+          <span class="card-label">O Seu Encerramento Pessoal</span>
+          <p>Uma mensagem direta escrita para onde realmente está — não um encorajamento genérico, mas algo que só poderia ter sido escrito para a pessoa que respondeu a estas perguntas específicas.</p>
+        </div>
+      </div>
+      <!-- TODO: Replace with report sample / mockup image -->
+      <div class="report-mockup">
+        <img src="" alt="Exemplo de relatório Compass" />
+        <span class="img-placeholder-label">Imagem do relatório / mockup</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── 5. PRICING ─────────────────────────────────────── -->
+  <section class="pricing fade-in" id="precos">
+    <div class="pricing-inner">
+      <span class="section-label">As Suas Opções</span>
+      <h2>Dois relatórios. Dois níveis de profundidade.</h2>
+      <p class="pricing-sub">Ambos são construídos inteiramente com base nas suas respostas. A diferença está em quão fundo quer ir — e quanto da sua vida financeira está pronto para ver com clareza.</p>
+
+      <div class="pricing-grid">
+
+        <!-- Relatório Básico -->
+        <div class="pricing-card pricing-card--basic">
+          <span class="section-label">Relatório Básico</span>
+          <h3>Clareza em 5 minutos.</h3>
+          <p class="pricing-card-desc">Responda a um conjunto de perguntas sobre o seu rendimento, gastos e hábitos. Enviaremos um relatório focado que identifica o único padrão que mais lhe custa — e que tipo de pessoa financeira é realmente.</p>
+          <div class="pricing-divider"></div>
+          <p class="pricing-price">¥1.000</p>
+          <p class="pricing-time">Questionário de 5 minutos · Entregue em 3–5 dias</p>
+          <span class="features-label">O Que Recebe</span>
+          <ul class="features-list">
+            <li><span class="feat-dot"></span><span><span class="feat-title">O seu retrato financeiro</span> — Uma visão estimada de para onde vai o seu dinheiro a cada mês.</span></li>
+            <li><span class="feat-dot"></span><span><span class="feat-title">O seu maior desperdício</span> — O padrão que mais lhe custa — identificado, explicado e quantificado.</span></li>
+            <li><span class="feat-dot"></span><span><span class="feat-title">A sua personalidade financeira</span> — Uma leitura clara de como e porquê gasta da forma que gasta.</span></li>
+            <li><span class="feat-dot"></span><span><span class="feat-title">O seu encerramento pessoal</span> — Uma mensagem direta escrita especificamente para onde está agora.</span></li>
+          </ul>
+          <!-- TODO: Replace with Stripe payment link for Basic Report -->
+          <a href="#" class="btn-green btn-full">Obter o Relatório Básico — ¥1.000</a>
+          <p class="pricing-trust">Baseado em estimativas · Sem folhas de cálculo</p>
+        </div>
+
+        <!-- Relatório Completo -->
+        <div class="pricing-card pricing-card--full">
+          <span class="recommended-badge">Recomendado</span>
+          <span class="section-label">Relatório Completo</span>
+          <h3>Um plano financeiro completo.</h3>
+          <p class="pricing-card-desc">Partilhe os seus valores exatos e construiremos um quadro completo da sua vida financeira no Japão — cada categoria detalhada, cada decisão mais clara, e um plano preciso mês a mês para o que vem a seguir.</p>
+          <div class="pricing-divider"></div>
+          <p class="pricing-price">¥5.000</p>
+          <p class="pricing-time">Questionário de 20–30 minutos · Entregue em 3–5 dias</p>
+          <span class="features-label">O Que Recebe</span>
+          <ul class="features-list">
+            <li><span class="feat-dot"></span><span><span class="feat-title">O seu quadro financeiro completo</span> — Todas as fontes de rendimento e categorias de despesa mapeadas entre si — com base nos seus valores exatos.</span></li>
+            <li><span class="feat-dot"></span><span><span class="feat-title">Análise linha a linha das despesas</span> — Cada categoria de gastos examinada para saber exatamente o que cortar, o que manter e porquê.</span></li>
+            <li><span class="feat-dot"></span><span><span class="feat-title">A sua personalidade financeira</span> — Um perfil psicológico completo de como e porquê gasta — e o que isso significa para o seu futuro.</span></li>
+            <li><span class="feat-dot"></span><span><span class="feat-title">O seu plano Manter / Cortar / Proteger</span> — Recomendações específicas e priorizadas que respeitam a sua vida real — não uma lista de coisas a abdicar.</span></li>
+            <li><span class="feat-dot"></span><span><span class="feat-title">O seu plano semana a semana de 90 dias</span> — Exatamente o que fazer e quando, na ordem certa, a começar esta semana.</span></li>
+            <li><span class="feat-dot"></span><span><span class="feat-title">O seu roteiro financeiro de 12 meses</span> — Um plano faseado que mostra onde estará aos 3, 6, 9 e 12 meses se cumprir o plano.</span></li>
+            <li><span class="feat-dot"></span><span><span class="feat-title">O seu guia do sistema financeiro japonês</span> — Uma explicação em linguagem simples do que se aplica à sua situação — NISA, iDeCo, imposto de residência, declaração como freelancer — para saber o que considerar e em que ordem.</span></li>
+          </ul>
+          <!-- TODO: Replace with Stripe payment link for Full Report -->
+          <a href="#" class="btn-gold btn-full">Obter o Relatório Completo — ¥5.000</a>
+          <p class="pricing-trust">Com base nos seus valores exatos · Mais completo</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── 6. HOW IT WORKS ────────────────────────────────── -->
+  <section class="how-it-works fade-in">
+    <span class="section-label">O Processo</span>
+    <h2>Simples. Pessoal. Prático.</h2>
+    <div class="steps">
+      <div class="step">
+        <span class="step-number">01</span>
+        <h3>Escolha o seu relatório</h3>
+        <p>Selecione o nível de profundidade que corresponde ao seu momento. Pagamento único — sem subscrição, sem taxas ocultas.</p>
+      </div>
+      <div class="step-divider"></div>
+      <div class="step">
+        <span class="step-number">02</span>
+        <h3>Preencha o questionário</h3>
+        <p>Uma reflexão focada sobre as suas finanças, hábitos de consumo e objetivos no Japão. O Relatório Básico demora 5 minutos. O Relatório Completo demora 20–30.</p>
+      </div>
+      <div class="step-divider"></div>
+      <div class="step">
+        <span class="step-number">03</span>
+        <h3>Receba o seu relatório</h3>
+        <p>O seu relatório é preparado especificamente com base nas suas respostas e entregue na sua caixa de entrada em 3–5 dias.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── 7. WHY COMPASS ─────────────────────────────────── -->
+  <section class="why-compass fade-in">
+    <div class="why-compass-text">
+      <span class="section-label">Porquê o Compass</span>
+      <h2>Construído para onde realmente está.</h2>
+      <p class="why-compass-body">A maioria dos conselhos financeiros não foi criada para pessoas que vivem no estrangeiro. Assume que compreende o sistema local, fala a língua fluentemente e planeia desde os vinte anos. O Compass é diferente. Parte de onde realmente está — não de onde deveria estar. As suas respostas são lidas com atenção, a sua situação é considerada, e o que recebe de volta é um relatório que faz sentido para a sua vida no Japão — não para a vida de outra pessoa.</p>
+      <div class="pull-quote-wrap">
+        <span class="pull-quote-line"></span>
+        <p class="pull-quote">"Não onde deveria estar. Onde realmente está."</p>
+        <span class="pull-quote-line"></span>
+      </div>
+    </div>
+    <!-- TODO: Replace with portrait or atmospheric Japan photo -->
+    <div class="why-compass-image">
+      <img src="" alt="Pessoa no Japão" />
+      <span class="img-placeholder-label">Fotografia atmosférica<br>Japão</span>
+    </div>
+  </section>
+
+  <!-- ─── 8. OBJECTIONS ──────────────────────────────────── -->
+  <section class="objections fade-in">
+    <div class="objections-inner">
+      <span class="section-label">Perguntas Frequentes</span>
+      <h2>Pode estar a pensar…</h2>
+      <div class="objection-list">
+        <div class="objection">
+          <p class="objection-q">"Já sei que gasto demasiado."</p>
+          <p class="objection-a">Saber e compreender são coisas diferentes. Isto mostra-lhe porquê está a acontecer — e o que fazer a seguir, na ordem certa.</p>
+        </div>
+        <div class="objection">
+          <p class="objection-q">"Isto vai ser mesmo personalizado para mim?"</p>
+          <p class="objection-a">Sim. Cada relatório Compass é construído em torno das suas respostas específicas. O seu rendimento, os seus hábitos, os seus objetivos no Japão. Não há dois relatórios iguais.</p>
+        </div>
+        <div class="objection">
+          <p class="objection-q">"¥5.000 vale a pena por um relatório?"</p>
+          <p class="objection-a">O Relatório Completo analisa cada despesa específica da sua vida — convenience stores, entregas, subscrições, viagens, remessas, tudo — e diz-lhe exatamente o que cortar e o que vale a pena manter. A maioria dos leitores descobre um padrão que lhes custa ¥100.000 ou mais por ano e que nunca tinham quantificado. O relatório paga-se a si próprio na primeira vez que age com base nele.</p>
+        </div>
+        <div class="objection">
+          <p class="objection-q">"O que torna o Relatório Completo diferente de fazer um orçamento sozinho?"</p>
+          <p class="objection-a">Um orçamento diz-lhe o que gastou. O Relatório Completo diz-lhe porquê — e o que isso significa. Cada categoria de despesa da sua vida é examinada no contexto do seu rendimento, dos seus objetivos e da sua situação no Japão. Não recebe uma folha de cálculo. Recebe um plano preciso e priorizado escrito para a pessoa específica que preencheu o questionário.</p>
+        </div>
+        <div class="objection">
+          <p class="objection-q">"Não tenho tempo para preencher um questionário longo."</p>
+          <p class="objection-a">O Relatório Básico demora 5 minutos e dá-lhe uma resposta real hoje. O Relatório Completo demora 20–30 — o tempo de uma viagem de metro — e dá-lhe um plano financeiro completo para os próximos 12 meses. Escolhe a profundidade para a qual está pronto.</p>
+        </div>
+        <div class="objection">
+          <p class="objection-q">"Vou tratar das minhas finanças quando as coisas acalmarem."</p>
+          <p class="objection-a">As coisas não acalmam no Japão — simplesmente continuam. O Relatório Básico existe precisamente para isto: um quadro claro de onde está, em 5 minutos, sem esperar ter mais tempo ou mais dinheiro.</p>
+        </div>
+        <div class="objection">
+          <p class="objection-q">"E se ainda não ganho muito?"</p>
+          <p class="objection-a">O Relatório Básico foi construído para exatamente este momento — antes de ter tudo resolvido. Mostra-lhe o único padrão que está a fazer mais dano agora, e o que fazer primeiro. Não precisa de um rendimento elevado para beneficiar de compreender para onde vai o seu dinheiro.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── 9. FINAL CTA ───────────────────────────────────── -->
+  <section class="final-cta fade-in">
+    <h2>Pronto para ter clareza sobre o seu dinheiro no Japão?</h2>
+    <p class="final-cta-sub">Um relatório. Construído inteiramente com base nas suas respostas. Quer queira um ponto de partida claro ou um plano completo — o que receberá será a imagem mais honesta das suas finanças que alguma vez teve.</p>
+    <!-- TODO: Replace with Stripe payment link for Full Report -->
+    <a href="#" class="btn-green">→ Obter o Relatório Completo — ¥5.000</a>
+    <!-- TODO: Replace href with Stripe payment link for Basic Report -->
+    <p class="final-cta-secondary">Ou <a href="#">comece com o Relatório Básico por ¥1.000</a></p>
+    <p class="final-cta-trust">Questionário de 20–30 minutos · Totalmente personalizado · Entregue em 3–5 dias</p>
+  </section>
+
+  <!-- ─── 10. FOOTER ──────────────────────────────────────── -->
+  <footer class="fade-in">
+    <div class="footer-main">
+      <div>
+        <a href="#" class="footer-logo">Compass</a>
+        <span class="footer-tagline">Encontre clareza. Encontre direção.</span>
+      </div>
+      <div class="footer-contact">
+        Dúvidas? hello@compassreport.com
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2026 Compass. Todos os direitos reservados.</span>
+    </div>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.08 });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>
